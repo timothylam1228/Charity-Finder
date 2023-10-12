@@ -1,19 +1,32 @@
+import { useEffect } from "react"
 import CharityList from "../components/Charity/CharityList"
 import Searchbar from "../components/Searchbar"
+import causes from "../assets/causeslist.json"
+import { useDispatch } from "react-redux"
+import { fetchCharitiesList } from "../features/charity/charitySlice"
+import { AppDispatch } from "../app/store"
 
 const Home = () => {
+  const dispatch = useDispatch<AppDispatch>()
+  useEffect(() => {
+    // pick a random cause from the list
+    const randomCause =
+      causes.causes[Math.floor(Math.random() * causes.causes.length)]
+
+    dispatch(fetchCharitiesList(randomCause))
+  }, [])
   return (
     <>
-      <div className=" h-[70vh] bg-green-100">
+      <div className=" h-[70vh]">
         <div
           id="search-bar-container"
-          className="flex flex-col justify-center items-center h-full"
+          className="flex flex-col justify-center items-center h-full bg-gray-200"
         >
           <h1>Search the charity by causes</h1>
           <Searchbar />
         </div>
       </div>
-      <div className="h-full bg-green-300 w-full md:px-12">
+      <div className="h-full bg-gray-200 w-full md:px-12">
         <CharityList />
       </div>
     </>
