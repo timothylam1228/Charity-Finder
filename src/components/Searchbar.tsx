@@ -43,6 +43,7 @@ const Searchbar = () => {
           type="text"
           value={query}
           onChange={handleInputChange}
+          placeholder="Search the charity by causes"
         ></input>
 
         <img

@@ -17,12 +17,11 @@ const Home = () => {
   }, [])
   return (
     <>
-      <div className=" h-[70vh]">
+      <div className=" h-[70vh] bg-hero bg-cover">
         <div
           id="search-bar-container"
-          className="flex flex-col justify-center items-center h-full bg-gray-200"
+          className="flex flex-col justify-center items-center h-full "
         >
-          <h1>Search the charity by causes</h1>
           <Searchbar />
         </div>
       </div>
